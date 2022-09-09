@@ -18,7 +18,7 @@
 </template>
 
 <script>
-let arrayFromStorage = JSON.parse(localStorage.getItem("TODOS"))
+let arrayFromStorage = JSON.parse(localStorage.getItem("TODOS2"))
 let arrayLength = arrayFromStorage.length
 arrayLength = JSON.stringify(++arrayLength)
 export default {

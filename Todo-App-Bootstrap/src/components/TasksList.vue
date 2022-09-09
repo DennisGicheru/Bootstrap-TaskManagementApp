@@ -28,12 +28,13 @@
                     <td>{{todo.date_added}}</td>
                     <td>{{todo.deadline}}</td>
                     <td>{{todo.date_completed}}</td>
-                    <td><button>Edit</button></td>
+                    <td><button type="button"><router-link :to="{name:'EditTasks', params:{id : todo.id }}">Edit</router-link></button></td>
                     <td><button>Delete</button></td>
                 </tr>
             </tbody>
         </table>
         <AddTasks v-show="showmodal"/>
+        <EditTasks v-show="showmodal" />
     </div>
     
    </div>
@@ -43,6 +44,7 @@
 import { onMounted, computed, ref } from 'vue';
 import {useStore} from 'vuex';
 import AddTasks from './AddTasks.vue';
+import EditTasks from './EditTasks.vue';
 
 const store = useStore()
 
@@ -54,8 +56,9 @@ onMounted(() => {
     store.dispatch('fetchTodos')
 })
 
-const showmodal = ref(false);
 
+const showmodal = ref(false);
+const showmodal2 = ref(false)
 
 </script>
 
